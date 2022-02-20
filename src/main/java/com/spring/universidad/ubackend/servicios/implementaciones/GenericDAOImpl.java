@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class GenericDAOImpl <T, R extends CrudRepository <T, Integer>> implements GenericDAO <T> {
 
-    protected final R repository;
+    protected final R repository; // puedo acceder sin necesidad del getter
 
     public GenericDAOImpl(R repository) {
         this.repository = repository;

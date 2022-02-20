@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CarreraDAOImpl extends GenericDAOImpl<Carrera, CarreraRepository> implements CarreraDAO {
 
-    @Autowired
+    @Autowired // Constructor del padre que recibe el tipo de repositorio
     public CarreraDAOImpl(CarreraRepository repository) {
         super(repository);
     }
