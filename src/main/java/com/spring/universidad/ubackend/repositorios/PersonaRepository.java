@@ -7,7 +7,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.Optional;
 
-@NoRepositoryBean
+@NoRepositoryBean // no Genere un bean de este repo pero si de las clases hijas
 public interface PersonaRepository extends CrudRepository<Persona, Integer> {
 
     @Query("select p from Persona as p where p.nombre =?1 and p.apellido =?2")
