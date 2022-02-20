@@ -33,4 +33,9 @@ public class CarreraDAOImpl extends GenericDAOImpl<Carrera, CarreraRepository> i
     public Iterable<Carrera> findCarrerasByCantidadAniosAfter(Integer cantidadAnios) {
         return  repository.findCarrerasByCantidadAniosAfter(cantidadAnios);
     }
+
+    @Override
+    public Iterable<Carrera> buscarCarrerasPorProfesorNombreYApellido(String nombre, String apellido) {
+        return repository.buscarCarrerasPorProfesorNombreYApellido(nombre, apellido);
+    }
 }

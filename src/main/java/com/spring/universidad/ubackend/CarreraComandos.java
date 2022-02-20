@@ -38,8 +38,8 @@ public class CarreraComandos implements CommandLineRunner {
 
          */
 
-        /*
-        List<Carrera> carreras = (List<Carrera>) servicio.findCarrerasByNombreContains("sistemas");
+
+        List<Carrera> carreras = (List<Carrera>) servicio.buscarCarrerasPorProfesorNombreYApellido("Raul", "Perez");
         carreras.forEach(System.out::println);
 
         List<Carrera> carrerasIgnoreCase1 = (List<Carrera>) servicio.findCarrerasByNombreContainsIgnoreCase("SISTEMAS");
@@ -50,7 +50,7 @@ public class CarreraComandos implements CommandLineRunner {
         List<Carrera> carrerasPorAnio = (List<Carrera>) servicio.findCarrerasByCantidadAniosAfter(3);
         carrerasPorAnio.forEach(System.out::println);
 
-         */
+
 
 
     }
