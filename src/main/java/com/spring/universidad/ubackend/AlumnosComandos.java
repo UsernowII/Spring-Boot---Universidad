@@ -47,9 +47,12 @@ public class AlumnosComandos implements CommandLineRunner {
         personasApellidos.forEach(System.out::println);
          */
 
+        /*
         Optional<Carrera> ingSistemas = carreraDAO.finById(2);
         Iterable<Persona> alumnosCarrera = ((AlumnoDAO) personaDAO).buscarAlumnosPorNombreCarrera(ingSistemas.get().getNombre());
         alumnosCarrera.forEach(System.out::println);
+
+         */
     }
 }
 

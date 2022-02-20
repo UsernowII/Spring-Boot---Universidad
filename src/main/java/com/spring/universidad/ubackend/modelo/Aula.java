@@ -30,9 +30,10 @@ public class Aula implements Serializable {
 
 
     @ManyToOne(
+            optional = true,
             cascade = {
                     CascadeType.PERSIST,
-                    CascadeType.PERSIST
+                    CascadeType.MERGE
             }
     )
     @JoinColumn(
