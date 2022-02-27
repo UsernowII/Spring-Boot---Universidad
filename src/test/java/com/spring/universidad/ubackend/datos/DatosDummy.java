@@ -9,16 +9,21 @@ import static com.spring.universidad.ubackend.modelo.enumeradores.TipoEmpleado.*
 
 public class DatosDummy {
 
-    public static Carrera carrera01(){
-        return new Carrera(null, "Ingenieria en sistemas", 50,5);
+    public static Carrera carrera01( boolean conId){
+        Carrera carrera = conId ? new Carrera(1, "Ingenieria en sistemas", 50,5) :
+                new Carrera(null, "Ingenieria en sistemas", 50,5);
+
+        return carrera;
     }
 
     public static Carrera carrera02(){
         return new Carrera(null, "Licenciatura en sistemas", 45,4);
     }
 
-    public static Carrera carrera03(){
-        return new Carrera(null, "Ingenieria Industrial", 60,5);
+    public static Carrera carrera03(boolean conId){
+        Carrera carrera = conId ? new Carrera(3, "Ingenieria Industrial", 60,5) :
+                new Carrera(null, "Ingenieria Industrial", 60,5);
+        return carrera;
     }
 
     public static Persona empleado01(){

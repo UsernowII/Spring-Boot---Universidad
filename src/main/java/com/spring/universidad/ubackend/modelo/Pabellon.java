@@ -30,7 +30,6 @@ public class Pabellon implements Serializable {
     @OneToMany(
             mappedBy = "pabellon",
             fetch = FetchType.LAZY
-
     )
     private Set<Aula> aulas;
 

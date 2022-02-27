@@ -32,7 +32,6 @@ public class Carrera implements Serializable {
     )
     @JsonIgnoreProperties({"carrera"})
     private Set<Alumno> alumnos;
-
     @ManyToMany(
             mappedBy = "carreras",
             fetch = FetchType.LAZY

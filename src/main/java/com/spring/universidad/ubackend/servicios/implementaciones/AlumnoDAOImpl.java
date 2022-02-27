@@ -7,6 +7,7 @@ import com.spring.universidad.ubackend.servicios.contratos.AlumnoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
@@ -24,6 +25,7 @@ public class AlumnoDAOImpl extends PersonaDAOImpl implements AlumnoDAO {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Iterable<Persona> buscarAlumnosPorNombreCarrera(String nombre) {
         return ((AlumnoRepository)repository).buscarAlumnosPorNombreCarrera(nombre);
     }

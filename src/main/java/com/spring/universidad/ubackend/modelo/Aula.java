@@ -27,8 +27,6 @@ public class Aula implements Serializable {
     private LocalDateTime fechaAlta;
     @Column(name = "fecha_modificacion")
     private LocalDateTime fechaModificacion;
-
-
     @ManyToOne(
             optional = true,
             cascade = {
