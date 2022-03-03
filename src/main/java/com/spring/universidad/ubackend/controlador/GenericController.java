@@ -25,7 +25,10 @@ public class GenericController <E, S extends GenericDAO <E> >{
         return listado;
     }
 
+    /*
     public E findById(Integer id){
         return new E;
     }
+      */
+
 }
