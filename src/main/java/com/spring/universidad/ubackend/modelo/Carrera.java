@@ -18,7 +18,7 @@ public class Carrera implements Serializable {
     @Column(nullable = false, unique = true, length = 80)
     private String nombre;
     @Column(name = "cantidad_materias")
-    private Integer cantidadMateria;
+    private Integer cantidadMaterias;
     @Column(name = "cantidad_anios")
     private Integer cantidadAnios;
     @Column(name = "fecha_alta")
@@ -30,13 +30,13 @@ public class Carrera implements Serializable {
             mappedBy = "carrera", // nombre del atributo que hace el join
             fetch = FetchType.LAZY // carga perezosa se va cargando a medida que se va necesitando
     )
-    @JsonIgnoreProperties({"carrera"})
+    @JsonIgnoreProperties({"carrera"}) // de la clase alumno no tenga en cuenta la propiedad carrera
     private Set<Alumno> alumnos;
     @ManyToMany(
             mappedBy = "carreras",
             fetch = FetchType.LAZY
     )
-    @JsonIgnoreProperties({"carreras"})
+    @JsonIgnoreProperties({"carreras"}) // de la clase profesores no tenga en cuenta la propiedad carreras
     private Set<Profesor> profesores;
 
 
@@ -46,7 +46,7 @@ public class Carrera implements Serializable {
     public Carrera(Integer id, String nombre, Integer cantidadMateria, Integer cantidadAnios) {
         this.id = id;
         this.nombre = nombre;
-        this.cantidadMateria = cantidadMateria;
+        this.cantidadMaterias = cantidadMateria;
         this.cantidadAnios = cantidadAnios;
     }
 
@@ -66,12 +66,12 @@ public class Carrera implements Serializable {
         this.nombre = nombre;
     }
 
-    public Integer getCantidadMateria() {
-        return cantidadMateria;
+    public Integer getCantidadMaterias() {
+        return cantidadMaterias;
     }
 
-    public void setCantidadMateria(Integer cantidadMateria) {
-        this.cantidadMateria = cantidadMateria;
+    public void setCantidadMaterias(Integer cantidadMateria) {
+        this.cantidadMaterias = cantidadMateria;
     }
 
     public Integer getCantidadAnios() {
@@ -129,7 +129,7 @@ public class Carrera implements Serializable {
         return "Carrera{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", cantidadMateria=" + cantidadMateria +
+                ", cantidadMateria=" + cantidadMaterias +
                 ", cantidadAnios=" + cantidadAnios +
                 ", fechaAlta=" + fechaAlta +
                 ", fechaModificacion=" + fechaModificacion +

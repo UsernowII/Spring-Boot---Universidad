@@ -1,6 +1,8 @@
 package com.spring.universidad.ubackend.modelo;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,7 @@ public class Alumno extends Persona{
             }
     )
     @JoinColumn(name = "carrera_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "alumnos"}) // nombre del error , nobre del parametro donde esta mapeado
     private Carrera carrera;
 
     public Alumno() {

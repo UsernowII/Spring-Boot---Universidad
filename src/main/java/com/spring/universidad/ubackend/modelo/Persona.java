@@ -1,5 +1,8 @@
 package com.spring.universidad.ubackend.modelo;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -8,6 +11,18 @@ import java.util.Objects;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "personas")
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "tipo"
+)
+@JsonSubTypes(
+        {
+                @JsonSubTypes.Type(value = Alumno.class, name = "alumno"),
+                @JsonSubTypes.Type(value = Profesor.class, name = "profesor"),
+                @JsonSubTypes.Type(value = Empleado.class, name = "empleado")
+        }
+)
 public abstract class Persona implements Serializable {
 
     @Id
@@ -21,7 +36,7 @@ public abstract class Persona implements Serializable {
     private String dni;
     @Column(name = "fecha_alta")
     private LocalDateTime fechaAlta;
-    @Column(name = "fechha_modificacion")
+    @Column(name = "fecha_modificacion")
     private LocalDateTime fechaModificacion;
     @Embedded
     @AttributeOverrides({
