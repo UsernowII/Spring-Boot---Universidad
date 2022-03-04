@@ -9,9 +9,11 @@ import com.spring.universidad.ubackend.servicios.contratos.CarreraDAO;
 import com.spring.universidad.ubackend.servicios.contratos.PersonaDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -29,35 +31,47 @@ public class AlumnoController extends PersonaController {
     }
 
     @PutMapping("/{id}")
-    public Persona actualizarAlumno(@PathVariable Integer id, @RequestBody Persona alumno) {
+    public ResponseEntity<?> actualizarAlumno(@PathVariable Integer id, @RequestBody Persona alumno) {
+        Map<String , Object> mensaje = new HashMap<>();
         Persona alumnoUpdate;
         Optional<Persona> oPersona = service.finById(id);
         if (oPersona.isEmpty()) {
-            throw new BadRequestException(String.format("Alumno con id %d no existe", id));
+            mensaje.put("success", Boolean.FALSE);
+            mensaje.put("mensaje", String.format("Alumno con id %d no existe", id));
+            return ResponseEntity.badRequest().body(mensaje);
         }
         alumnoUpdate = oPersona.get();
         alumnoUpdate.setNombre(alumno.getNombre());
         alumnoUpdate.setApellido(alumno.getApellido());
         alumnoUpdate.setDireccion(alumno.getDireccion());
-        return service.save(alumnoUpdate);
+        mensaje.put("datos", service.save(alumnoUpdate));
+        mensaje.put("success", Boolean.TRUE);
+        return ResponseEntity.ok(mensaje);
     }
 
 
     @PutMapping("/{idAlumno}/carrera/{idCarrera}")
-    public Persona asignarCarreraAlumno(@PathVariable Integer idAlumno, @PathVariable Integer idCarrera){
+    public ResponseEntity<?> asignarCarreraAlumno(@PathVariable Integer idAlumno, @PathVariable Integer idCarrera){
+        Map<String , Object> mensaje = new HashMap<>();
         Optional<Persona> oAlumno = service.finById(idAlumno);
         if (!oAlumno.isPresent()) {
-            throw new BadRequestException(String.format("Alumno con id %d no existe", idAlumno));
+            mensaje.put("success", Boolean.FALSE);
+            mensaje.put("mensaje", String.format("Alumno con id %d no existe", idAlumno));
+            return ResponseEntity.badRequest().body(mensaje);
         }
         Optional<Carrera> oCarrera = carreraDAO.finById(idCarrera);
         if (oCarrera.isEmpty()){
-            throw new BadRequestException(String.format("Carrera con id %d no existe", idCarrera));
+            mensaje.put("success", Boolean.FALSE);
+            mensaje.put("mensaje",String.format("Carrera con id %d no existe", idCarrera));
+            return ResponseEntity.badRequest().body(mensaje);
         }
         Persona alumno = oAlumno.get();
         Carrera carrera = oCarrera.orElseThrow();
 
         ((Alumno)alumno).setCarrera(carrera);
-        return service.save(alumno);
+        mensaje.put("datos", service.save(alumno));
+        mensaje.put("success", Boolean.TRUE);
+        return ResponseEntity.accepted().body(mensaje);
     }
 
     /*
@@ -83,6 +97,20 @@ public class AlumnoController extends PersonaController {
     @PostMapping()
     public Persona altaAlumno(@RequestBody Persona alumno) {
         return alumnoDao.save(alumno);
+    }
+
+       @PutMapping("/{id}")
+    public Persona actualizarAlumno(@PathVariable Integer id, @RequestBody Persona alumno) {
+        Persona alumnoUpdate;
+        Optional<Persona> oPersona = service.finById(id);
+        if (oPersona.isEmpty()) {
+            throw new BadRequestException(String.format("Alumno con id %d no existe", id));
+        }
+        alumnoUpdate = oPersona.get();
+        alumnoUpdate.setNombre(alumno.getNombre());
+        alumnoUpdate.setApellido(alumno.getApellido());
+        alumnoUpdate.setDireccion(alumno.getDireccion());
+        return service.save(alumnoUpdate);
     }
 
     @DeleteMapping("/{id}")
