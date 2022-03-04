@@ -1,4 +1,4 @@
-package com.spring.universidad.ubackend.modelo;
+package com.spring.universidad.ubackend.modelo.entidades;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;

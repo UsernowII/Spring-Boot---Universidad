@@ -1,8 +1,8 @@
 package com.spring.universidad.ubackend.repositorios;
 
-import com.spring.universidad.ubackend.modelo.Alumno;
-import com.spring.universidad.ubackend.modelo.Carrera;
-import com.spring.universidad.ubackend.modelo.Persona;
+import com.spring.universidad.ubackend.modelo.entidades.Alumno;
+import com.spring.universidad.ubackend.modelo.entidades.Carrera;
+import com.spring.universidad.ubackend.modelo.entidades.Persona;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,7 +13,6 @@ import java.util.List;
 
 import static com.spring.universidad.ubackend.datos.DatosDummy.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 class AlumnoRepositoryTest {

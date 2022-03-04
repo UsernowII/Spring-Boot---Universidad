@@ -1,9 +1,8 @@
 package com.spring.universidad.ubackend.repositorios;
 
-import com.spring.universidad.ubackend.datos.DatosDummy;
-import com.spring.universidad.ubackend.modelo.Empleado;
-import com.spring.universidad.ubackend.modelo.Persona;
-import com.spring.universidad.ubackend.modelo.Profesor;
+import com.spring.universidad.ubackend.modelo.entidades.Empleado;
+import com.spring.universidad.ubackend.modelo.entidades.Persona;
+import com.spring.universidad.ubackend.modelo.entidades.Profesor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

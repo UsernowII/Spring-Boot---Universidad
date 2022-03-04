@@ -1,6 +1,6 @@
 package com.spring.universidad.ubackend.servicios.contratos;
 
-import com.spring.universidad.ubackend.modelo.Persona;
+import com.spring.universidad.ubackend.modelo.entidades.Persona;
 
 import java.util.Optional;
 

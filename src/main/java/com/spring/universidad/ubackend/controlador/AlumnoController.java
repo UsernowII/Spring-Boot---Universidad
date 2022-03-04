@@ -1,14 +1,14 @@
 package com.spring.universidad.ubackend.controlador;
 
 
-import com.spring.universidad.ubackend.exception.BadRequestException;
-import com.spring.universidad.ubackend.modelo.Alumno;
-import com.spring.universidad.ubackend.modelo.Carrera;
-import com.spring.universidad.ubackend.modelo.Persona;
+import com.spring.universidad.ubackend.modelo.entidades.Alumno;
+import com.spring.universidad.ubackend.modelo.entidades.Carrera;
+import com.spring.universidad.ubackend.modelo.entidades.Persona;
 import com.spring.universidad.ubackend.servicios.contratos.CarreraDAO;
 import com.spring.universidad.ubackend.servicios.contratos.PersonaDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Deprecated
 @RestController
 @RequestMapping("/alumnos")
+@ConditionalOnProperty(prefix = "app", name = "controller.enable-dto", havingValue = "false")
 public class AlumnoController extends PersonaController {
 
 

@@ -1,6 +1,6 @@
 package com.spring.universidad.ubackend.repositorios;
 
-import com.spring.universidad.ubackend.modelo.Carrera;
+import com.spring.universidad.ubackend.modelo.entidades.Carrera;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

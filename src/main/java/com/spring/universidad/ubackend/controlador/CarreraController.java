@@ -1,9 +1,8 @@
 package com.spring.universidad.ubackend.controlador;
 
-import com.spring.universidad.ubackend.exception.BadRequestException;
-import com.spring.universidad.ubackend.modelo.Carrera;
+import com.spring.universidad.ubackend.modelo.entidades.Carrera;
 import com.spring.universidad.ubackend.servicios.contratos.CarreraDAO;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@Deprecated // Saber que esta clase no tiene continuidad
 @RestController
 @RequestMapping("/carreras")
+@ConditionalOnProperty(prefix = "app", name = "controller.enable-dto", havingValue = "false")
 public class CarreraController extends GenericController<Carrera, CarreraDAO>{
 
 

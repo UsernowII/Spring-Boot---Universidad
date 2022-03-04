@@ -1,6 +1,6 @@
 package com.spring.universidad.ubackend.servicios.implementaciones;
 
-import com.spring.universidad.ubackend.modelo.Persona;
+import com.spring.universidad.ubackend.modelo.entidades.Persona;
 import com.spring.universidad.ubackend.modelo.enumeradores.TipoEmpleado;
 import com.spring.universidad.ubackend.repositorios.EmpleadoRepository;
 import com.spring.universidad.ubackend.repositorios.PersonaRepository;

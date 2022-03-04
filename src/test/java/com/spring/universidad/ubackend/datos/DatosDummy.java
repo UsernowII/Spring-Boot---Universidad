@@ -1,6 +1,6 @@
 package com.spring.universidad.ubackend.datos;
 
-import com.spring.universidad.ubackend.modelo.*;
+import com.spring.universidad.ubackend.modelo.entidades.*;
 
 
 import java.math.BigDecimal;
@@ -9,7 +9,7 @@ import static com.spring.universidad.ubackend.modelo.enumeradores.TipoEmpleado.*
 
 public class DatosDummy {
 
-    public static Carrera carrera01( boolean conId){
+    public static Carrera carrera01(boolean conId){
         Carrera carrera = conId ? new Carrera(1, "Ingenieria en sistemas", 50,5) :
                 new Carrera(null, "Ingenieria en sistemas", 50,5);
 

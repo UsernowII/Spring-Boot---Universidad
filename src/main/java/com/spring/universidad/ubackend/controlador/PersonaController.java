@@ -1,7 +1,6 @@
 package com.spring.universidad.ubackend.controlador;
 
-import com.spring.universidad.ubackend.exception.BadRequestException;
-import com.spring.universidad.ubackend.modelo.Persona;
+import com.spring.universidad.ubackend.modelo.entidades.Persona;
 import com.spring.universidad.ubackend.servicios.contratos.PersonaDAO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Deprecated
 public class PersonaController extends GenericController <Persona, PersonaDAO>{
 
 

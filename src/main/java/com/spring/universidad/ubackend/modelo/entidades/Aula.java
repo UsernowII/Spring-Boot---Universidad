@@ -1,4 +1,4 @@
-package com.spring.universidad.ubackend.modelo;
+package com.spring.universidad.ubackend.modelo.entidades;
 
 import com.spring.universidad.ubackend.modelo.enumeradores.Pizarron;
 

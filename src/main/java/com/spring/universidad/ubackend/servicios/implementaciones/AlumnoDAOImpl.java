@@ -1,6 +1,6 @@
 package com.spring.universidad.ubackend.servicios.implementaciones;
 
-import com.spring.universidad.ubackend.modelo.Persona;
+import com.spring.universidad.ubackend.modelo.entidades.Persona;
 import com.spring.universidad.ubackend.repositorios.AlumnoRepository;
 import com.spring.universidad.ubackend.repositorios.PersonaRepository;
 import com.spring.universidad.ubackend.servicios.contratos.AlumnoDAO;

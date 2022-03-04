@@ -1,7 +1,7 @@
 package com.spring.universidad.ubackend.repositorios;
 
 import com.spring.universidad.ubackend.datos.DatosDummy;
-import com.spring.universidad.ubackend.modelo.Carrera;
+import com.spring.universidad.ubackend.modelo.entidades.Carrera;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
